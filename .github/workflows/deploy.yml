@@ -1,0 +1,41 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - main  # 或者您的主分支名称
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install Dependencies
+        run: cd Scendr && npm install
+        
+      - name: Publish to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: 'Scendr'
+          environment: 'production'
+        env:
+          # 设置环境变量
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ALIST_URL: ${{ secrets.ALIST_URL }}
+          ALIST_TOKEN: ${{ secrets.ALIST_TOKEN }}
+          ALIST_PATH: ${{ secrets.ALIST_PATH || '/telegram' }}
+          WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
+          WEBDAV_USER: ${{ secrets.WEBDAV_USER }}
+          WEBDAV_PASS: ${{ secrets.WEBDAV_PASS }}
+          WEBDAV_PATH: ${{ secrets.WEBDAV_PATH || '/telegram' }}
+          # KV命名空间ID
+          CHANNEL_STORE: ${{ secrets.CHANNEL_STORE_ID }}
