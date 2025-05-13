@@ -25,7 +25,7 @@ jobs:
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          workingDirectory: 'Scendr'
+          # 删除或修改 workingDirectory 参数
           environment: 'production'
         env:
           # 设置环境变量
