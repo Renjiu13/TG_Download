@@ -17,7 +17,7 @@ WEBDAV_PATH = "/telegram"
 # KV 命名空间配置
 [[kv_namespaces]]
 binding = "CHANNEL_STORE"
-id = ""
+id = "${KV_CHANNEL_STORE_ID}"
 
 # 开发环境配置
 [env.dev]
@@ -30,5 +30,5 @@ kv_namespaces = [
 [env.production]
 vars = { BOT_TOKEN = "", ALIST_URL = "", ALIST_TOKEN = "" }
 kv_namespaces = [
-  { binding = "CHANNEL_STORE", id = "" }
+  { binding = "CHANNEL_STORE", id = "${KV_CHANNEL_STORE_ID}" }
 ]
