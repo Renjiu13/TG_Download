@@ -17,7 +17,7 @@ WEBDAV_PATH = "/telegram"
 # KV 命名空间配置
 [[kv_namespaces]]
 binding = "CHANNEL_STORE"
-id = "${KV_CHANNEL_STORE_ID}"
+id = "您的实际KV命名空间ID"  # 替换为您在Cloudflare控制台创建的KV命名空间ID
 
 # 开发环境配置
 [env.dev]
@@ -30,5 +30,5 @@ kv_namespaces = [
 [env.production]
 vars = { BOT_TOKEN = "", ALIST_URL = "", ALIST_TOKEN = "" }
 kv_namespaces = [
-  { binding = "CHANNEL_STORE", id = "${KV_CHANNEL_STORE_ID}" }
+  { binding = "CHANNEL_STORE", id = "c3c57e9e4d50406c9688dd7a4da2e76e" }  # 替换为相同的KV命名空间ID
 ]
