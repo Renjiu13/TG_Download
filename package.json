@@ -8,10 +8,10 @@
     "deploy": "wrangler publish"
   },
   "dependencies": {
-    "itty-router": "^3.0.12"
+    "itty-router": "^5.0.18"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^4.15.0"
   },
   "author": "",
   "license": "MIT"
