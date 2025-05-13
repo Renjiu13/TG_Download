@@ -19,7 +19,7 @@ jobs:
           node-version: '18'
           
       - name: Install Dependencies
-        run: cd Scendr && npm install
+        run: npm install
         
       - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@v3
